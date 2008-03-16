@@ -1,3 +1,10 @@
+perceptualdiff (1.0.1-1.2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix gcc-4.3 FTBFS, patch by KiBi (Closes: #456049)
+
+ -- Marc 'HE' Brockschmidt <he@debian.org>  Sun, 16 Mar 2008 21:28:43 +0100
+
 perceptualdiff (1.0.1-1.1) unstable; urgency=low
 
   * Non-maintainer upload.

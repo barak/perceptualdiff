@@ -18,6 +18,9 @@ if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330,
 #include "RGBAImage.h"
 #include <stdio.h>
 
+#include <cstdlib>
+#include <cstring>
+
 static const char* copyright = 
 "PerceptualDiff version 1.0, Copyright (C) 2006 Yangli Hector Yee\n\
 PerceptualDiff comes with ABSOLUTELY NO WARRANTY;\n\
