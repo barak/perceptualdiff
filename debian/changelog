@@ -1,3 +1,11 @@
+perceptualdiff (1.0.1-1.3) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix build with gcc-4.4 using patch from Martin Michlmayr (Closes:
+    #505022)
+
+ -- Christoph Egger <christoph@debian.org>  Fri, 25 Dec 2009 23:27:06 +0100
+
 perceptualdiff (1.0.1-1.2) unstable; urgency=low
 
   * Non-maintainer upload.
