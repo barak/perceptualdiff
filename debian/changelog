@@ -1,3 +1,17 @@
+perceptualdiff (1.1.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Manpage correction. (closes: #564031)
+
+ -- Jeff Breidenbach <jab@debian.org>  Thu, 08 Dec 2011 16:49:55 -0800
+
+perceptualdiff (1.0.1-1.4) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * libpng 1.5 transition. (closes #636969)
+
+ -- iwamatsu <iwamatsu@localhost.localdomain>  Sun, 07 Aug 2011 15:23:04 +0900
+
 perceptualdiff (1.0.1-1.3) unstable; urgency=low
 
   * Non-maintainer upload.
