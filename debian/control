@@ -2,7 +2,7 @@ Source: perceptualdiff
 Section: utils
 Priority: optional
 Maintainer: Jeff Breidenbach <jab@debian.org>
-Build-Depends: debhelper (>= 4.0.0), cmake (>= 2.4.5), libpng12-dev | libpng-dev, libtiff4-dev, libfreeimage-dev
+Build-Depends: debhelper (>= 4.0.0), cmake (>= 2.4.5), libpng-dev, libtiff-dev, libfreeimage-dev
 Standards-Version: 3.6.2
 
 Package: perceptualdiff

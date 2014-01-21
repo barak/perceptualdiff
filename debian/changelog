@@ -1,3 +1,10 @@
+perceptualdiff (1.1.1-2) unstable; urgency=low
+
+  * libtiff transition (closes #736036)
+  * libpng transition (closes #636969, #636969)
+
+ -- Jeff Breidenbach <jab@debian.org>  Tue, 21 Jan 2014 09:00:14 -0800
+
 perceptualdiff (1.1.1-1) unstable; urgency=low
 
   * New upstream release.
