@@ -1,11 +1,13 @@
 This package was debianized by Jeff Breidenbach <jab@debian.org> on
 Fri, 28 Sep 2007 14:52:18 -0700.
 
-It was downloaded from http://pdiff.sourceforge.net/
+It was downloaded from https://github.com/myint/perceptualdiff/releases
 
 Upstream Author:  Yangli Hector Yee <yeehector@users.sourceforge.net>
+                  Steven Myint
 
-Copyright (C) 2006 Yangli Hector Yee
+Copyright (C) 2006-2011 Yangli Hector Yee
+Copyright (C) 2011-2014 Steven Myint
 
 License:
 

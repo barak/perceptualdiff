@@ -28,7 +28,9 @@ configure-stamp:
 	touch configure-stamp
 
 
-build: build-stamp
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
 
 build-stamp: configure-stamp 
 	dh_testdir
@@ -45,7 +47,7 @@ clean:
 	rm -f build-stamp configure-stamp
 
 	# Add here commands to clean up after the build process.
-	-make clean
+	make clean
 	rm -rf CMakeCache.txt CMakeFiles CPackConfig.cmake \
 		CPackSourceConfig.cmake cmake_install.cmake Makefile
 

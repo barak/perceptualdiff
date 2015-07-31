@@ -1,3 +1,9 @@
+perceptualdiff (1.2-1) unstable; urgency=medium
+
+  * Switch to OpenMP fork (closes: #673934)
+
+ -- Jeff Breidenbach <jab@debian.org>  Fri, 31 Jul 2015 00:19:43 +0000
+
 perceptualdiff (1.1.1-2) unstable; urgency=low
 
   * libtiff transition (closes #736036)

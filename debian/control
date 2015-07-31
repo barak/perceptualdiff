@@ -3,11 +3,11 @@ Section: utils
 Priority: optional
 Maintainer: Jeff Breidenbach <jab@debian.org>
 Build-Depends: debhelper (>= 4.0.0), cmake (>= 2.4.5), libpng-dev, libtiff-dev, libfreeimage-dev
-Standards-Version: 3.6.2
+Standards-Version: 3.9.6
 
 Package: perceptualdiff
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: perceptual image comparison tool
  PerceptualDiff is an image comparison utility that makes 
  use of a computational model of the human visual system to 
