@@ -35,26 +35,40 @@ files can also be in the PNG format
 .SH OPTIONS
 A summary of options is included below.
 .TP
-.B \-verbose
-Turns on verbose mode
+\fB\-\-verbose\fR
+: Turns on verbose mode
 .TP
-.B \-fov <deg>
-Field of view in degrees (0.1 to 89.9)
+\fB\-\-fov\fR deg
+: Field of view in degrees (0.1 to 89.9)
 .TP
-.B \-threshold <p>
-#pixels p below which differences are ignored
+\fB\-\-threshold\fR p
+: #pixels p below which differences are ignored
 .TP
-.B \-gamma <g>
-Value to convert rgb into linear space (default 2.2)
+\fB\-\-gamma\fR g
+: Value to convert rgb into linear space (default 2.2)
 .TP
-.B \-luminance <l>
- White luminance (default 100.0 cdm^-2)
+\fB\-\-luminance\fR l
+: White luminance (default 100.0 cdm^\-2)
+.HP
+\fB\-\-luminanceonly\fR : Only consider luminance; ignore chroma (color) in the comparison
 .TP
-.B \-output <o.ppm>
- Write difference to the file o.ppm
-.br
-.SH AUTHOR
-perceptualdiff was written by Yangli Hector Yee <yeehector@users.sourceforge.net>
+\fB\-\-colorfactor\fR
+: How much of color to use, 0.0 to 1.0, 0.0 = ignore color.
+.TP
+\fB\-\-downsample\fR
+: How many powers of two to down sample the image.
+.TP
+\fB\-\-scale\fR
+: Scale images to match each other's dimensions.
+.TP
+\fB\-\-sum\-errors\fR
+: Print a sum of the luminance and color differences.
+.TP
+\fB\-\-output\fR o.ppm
+: Write difference to the file o.ppm
+.PP
+Note: Input or Output files can also be in the PNG or JPG format or any format
+that FreeImage supports.
 .PP
 This manual page was written by Jeff Breidenbach <jab@debian.org>,
 for the Debian project (but may be used by others).
