@@ -1,4 +1,4 @@
-perceptualdiff (1.2-2.1) unstable; urgency=medium
+perceptualdiff (2.1-0.1) unstable; urgency=medium
 
   * Maintenance release: update packaging scripts
   * Trivial debian/rules makes logs verbose (closes: #928266)
@@ -9,8 +9,10 @@ perceptualdiff (1.2-2.1) unstable; urgency=medium
   * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
     Repository-Browse.
   * Add debian/changelog close clause colons
+  * Add debian/watch uscan support file
+  * New upstream release
 
- -- Barak A. Pearlmutter <bap@debian.org>  Thu, 30 Jan 2020 12:20:01 +0000
+ -- Barak A. Pearlmutter <bap@debian.org>  Thu, 30 Jan 2020 15:44:09 +0000
 
 perceptualdiff (1.2-2) unstable; urgency=medium
 
