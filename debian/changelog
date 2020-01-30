@@ -11,8 +11,9 @@ perceptualdiff (2.1-0.1) unstable; urgency=medium
   * Add debian/changelog close clause colons
   * Add debian/watch uscan support file
   * New upstream release
+    - checks --output error, see 9dffbb97 "Failed to save" (closes: #836777)
 
- -- Barak A. Pearlmutter <bap@debian.org>  Thu, 30 Jan 2020 15:44:09 +0000
+ -- Barak A. Pearlmutter <bap@debian.org>  Thu, 30 Jan 2020 16:08:55 +0000
 
 perceptualdiff (1.2-2) unstable; urgency=medium
 
