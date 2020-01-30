@@ -1,7 +1,7 @@
 /*
 Metric
 Copyright (C) 2006-2011 Yangli Hector Yee
-Copyright (C) 2011-2014 Steven Myint
+Copyright (C) 2011-2016 Steven Myint, Jeff Terrace
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -17,14 +17,23 @@ this program; if not, write to the Free Software Foundation, Inc., 59 Temple
 Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
-#ifndef _METRIC_H
-#define _METRIC_H
+#ifndef PERCEPTUALDIFF_EXCEPTIONS_H
+#define PERCEPTUALDIFF_EXCEPTIONS_H
 
-class CompareArgs;
+#include <stdexcept>
 
-// Image comparison metric using Yee's method
-// References: A Perceptual Metric for Production Testing, Hector Yee, Journal
-// of Graphics Tools 2004
-bool Yee_Compare(CompareArgs &args);
+
+namespace pdiff
+{
+    class PerceptualDiffException : public virtual std::invalid_argument
+    {
+    public:
+
+        explicit PerceptualDiffException(const std::string &message)
+            : std::invalid_argument(message)
+        {
+        }
+    };
+}
 
 #endif
