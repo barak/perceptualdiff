@@ -2,11 +2,15 @@ Source: perceptualdiff
 Section: utils
 Priority: optional
 Maintainer: Jeff Breidenbach <jab@debian.org>
-Build-Depends: debhelper-compat (= 12),
+Uploaders: Barak A. Pearlmutter <bap@debian.org>
+Build-Depends: debhelper-compat (= 13),
 	cmake (>= 2.4.5),
 	libpng-dev, libtiff-dev, libfreeimage-dev
-Standards-Version: 4.5.0
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
 Homepage: https://github.com/myint/perceptualdiff
+Vcs-Git: https://salsa.debian.org/debian/perceptualdiff.git
+Vcs-Browser: https://salsa.debian.org/debian/perceptualdiff
 
 Package: perceptualdiff
 Architecture: any
