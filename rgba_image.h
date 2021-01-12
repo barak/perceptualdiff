@@ -44,7 +44,10 @@ namespace pdiff
     public:
 
         RGBAImage(const unsigned int w, const unsigned int h, const std::string &name="")
-            : width_(w), weight_(h), name_(name), data_(w * h)
+            : width_(w),
+              height_(h),
+              name_(name),
+              data_(static_cast<size_t>(w) * h)
         {
         }
 
@@ -81,7 +84,7 @@ namespace pdiff
 
         unsigned int get_height() const
         {
-            return weight_;
+            return height_;
         }
 
         void set(const unsigned int x, const unsigned int y, const unsigned int d)
@@ -126,7 +129,7 @@ namespace pdiff
         RGBAImage &operator=(const RGBAImage &);
 
         const unsigned int width_;
-        const unsigned int weight_;
+        const unsigned int height_;
         const std::string name_;
         std::vector<unsigned int> data_;
     };

@@ -1,45 +1,46 @@
 project(perceptualdiff)
 
-cmake_minimum_required(VERSION 2.4)
+cmake_minimum_required(VERSION 3.1)
 
-add_library(
-    pdiff
-    lpyramid.cpp rgba_image.cpp metric.cpp)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_executable(
-    perceptualdiff
-    compare_args.cpp perceptualdiff.cpp)
-target_link_libraries(perceptualdiff pdiff)
-
-install(TARGETS perceptualdiff DESTINATION bin)
-
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
-
-set(FREEIMAGE_FIND_REQUIRED, TRUE)
-find_package(FreeImage)
-include_directories(SYSTEM ${FREEIMAGE_INCLUDE_DIRS})
-target_link_libraries(perceptualdiff ${FREEIMAGE_LIBRARIES})
-
-set(CMAKE_BUILD_TYPE Debug)
+if(NOT MSVC)
+    add_compile_options(
+        -Wall -Wextra -pedantic -Wcast-qual -Wpointer-arith -Winit-self
+        -Wswitch-default -Wmissing-include-dirs -Wold-style-cast
+        -Wnon-virtual-dtor -Wshadow -Wno-unknown-pragmas)
+endif()
 
 find_package(OpenMP)
 if(OPENMP_FOUND)
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+    add_compile_options(${OpenMP_CXX_FLAGS})
+    if(NOT MSVC)
+        set(CMAKE_EXE_LINKER_FLAGS
+            "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_CXX_FLAGS}")
+    endif()
 endif()
 
-option(OPTIMIZATION "Enable optimization" TRUE)
-if(OPTIMIZATION)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
-else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
+option(SANITIZERS "Enable sanitizers" FALSE)
+if(SANITIZERS)
+    add_compile_options(-fsanitize=address,undefined -fno-omit-frame-pointer)
+    set(CMAKE_EXE_LINKER_FLAGS
+        "${CMAKE_EXE_LINKER_FLAGS} -fsanitize=address,undefined")
 endif()
 
-if(MSVC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
-else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -Wall -Wextra -pedantic -Wcast-qual -Wpointer-arith -Winit-self -Wswitch-default -Wmissing-include-dirs -Wold-style-cast -Wnon-virtual-dtor -Wshadow -Wno-unknown-pragmas")
-endif(MSVC)
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
+set(FREEIMAGE_FIND_REQUIRED, TRUE)
+find_package(FreeImage)
+
+add_library(pdiff lpyramid.cpp rgba_image.cpp metric.cpp)
+target_include_directories(pdiff SYSTEM PRIVATE ${FREEIMAGE_INCLUDE_DIRS})
+target_link_libraries(pdiff PRIVATE ${FREEIMAGE_LIBRARIES})
+
+add_executable(perceptualdiff compare_args.cpp perceptualdiff.cpp)
+target_link_libraries(perceptualdiff PRIVATE pdiff)
+
+install(TARGETS perceptualdiff DESTINATION bin)
 
 # Packing stuff.
 set(CPACK_PACKAGE_VERSION_MAJOR "1")
@@ -77,9 +78,3 @@ set(CPACK_SOURCE_IGNORE_FILES
     "^${PROJECT_SOURCE_DIR}/coverage_output"
 )
 include(CPack)
-
-# Tests.
-enable_testing()
-add_test(run_tests.bash, "${PROJECT_SOURCE_DIR}/test/run_tests.bash")
-add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND}
-                  DEPENDS "perceptualdiff")

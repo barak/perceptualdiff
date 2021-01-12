@@ -52,25 +52,23 @@ namespace pdiff
         // 0.0 is the same as luminance_only_ = true,
         // 1.0 means full strength.
         float color_factor;
-
-        // How much to down sample image before comparing, in powers of 2.
-        unsigned int down_sample;
     };
 
 
     // Image comparison metric using Yee's method.
-    // References: A Perceptual Metric for Production Testing, Hector Yee, Journal
-    // of Graphics Tools 2004
+    // References: A Perceptual Metric for Production Testing, Hector Yee,
+    // Journal of Graphics Tools 2004
     //
     // Return true if the images are perceptually the same.
-    bool yee_compare(const PerceptualDiffParameters &parameters,
-                     const RGBAImage &image_a,
-                     const RGBAImage &image_b,
-                     size_t *output_num_pixels_failed=NULL,
-                     float *output_sum_errors=NULL,
-                     std::string *output_reason=NULL,
-                     RGBAImage *output_image_difference=NULL,
-                     std::ostream *output_verbose=NULL);
+    bool yee_compare(
+        const RGBAImage &image_a,
+        const RGBAImage &image_b,
+        const PerceptualDiffParameters &parameters=PerceptualDiffParameters(),
+        size_t *output_num_pixels_failed=nullptr,
+        float *output_sum_errors=nullptr,
+        std::string *output_reason=nullptr,
+        RGBAImage *output_image_difference=nullptr,
+        std::ostream *output_verbose=nullptr);
 }
 
 #endif

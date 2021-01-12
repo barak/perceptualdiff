@@ -41,20 +41,20 @@ namespace pdiff
 "Compares image1 and image2 using a perceptually based image metric.\n"
 "\n"
 "Options:\n"
-"  --verbose        Turn on verbose mode\n"
-"  --fov deg        Field of view in degrees [0.1, 89.9] (default: 45.0)\n"
-"  --threshold p    Number of pixels p below which differences are ignored\n"
-"  --gamma g        Value to convert rgb into linear space (default: 2.2)\n"
-"  --luminance l    White luminance (default: 100.0 cdm^-2)\n"
-"  --luminanceonly  Only consider luminance; ignore chroma (color) in the\n"
-"                   comparison\n"
-"  --colorfactor    How much of color to use [0.0, 1.0] (default: 1.0)\n"
-"  --downsample     How many powers of two to down sample the image\n"
-"                   (default: 0)\n"
-"  --scale          Scale images to match each other's dimensions\n"
-"  --sum-errors     Print a sum of the luminance and color differences\n"
-"  --output o       Write difference to the file o\n"
-"  --version        Print version\n"
+"  --verbose         Turn on verbose mode\n"
+"  --fov deg         Field of view in degrees [0.1, 89.9] (default: 45.0)\n"
+"  --threshold p     Number of pixels p below which differences are ignored\n"
+"  --gamma g         Value to convert rgb into linear space (default: 2.2)\n"
+"  --luminance l     White luminance (default: 100.0 cdm^-2)\n"
+"  --luminance-only  Only consider luminance; ignore chroma (color) in the\n"
+"                    comparison\n"
+"  --color-factor    How much of color to use [0.0, 1.0] (default: 1.0)\n"
+"  --down-sample     How many powers of two to down sample the image\n"
+"                    (default: 0)\n"
+"  --scale           Scale images to match each other's dimensions\n"
+"  --sum-errors      Print a sum of the luminance and color differences\n"
+"  --output o        Write difference to the file o\n"
+"  --version         Print version\n"
 "\n";
 
 
@@ -69,7 +69,8 @@ namespace pdiff
 
     CompareArgs::CompareArgs(int argc, char **argv)
         : verbose_(false),
-          sum_errors_(false)
+          sum_errors_(false),
+          down_sample_(0)
     {
         parse_args(argc, argv);
     }
@@ -147,7 +148,8 @@ namespace pdiff
                         parameters_.luminance = std::stof(argv[i]);
                     }
                 }
-                else if (option_matches(argv[i], "luminanceonly"))
+                else if (option_matches(argv[i], "luminance-only") or
+                         option_matches(argv[i], "luminanceonly"))
                 {
                     parameters_.luminance_only = true;
                 }
@@ -155,14 +157,16 @@ namespace pdiff
                 {
                     sum_errors_ = true;
                 }
-                else if (option_matches(argv[i], "colorfactor"))
+                else if (option_matches(argv[i], "color-factor") or
+                         option_matches(argv[i], "colorfactor"))
                 {
                     if (++i < argc)
                     {
                         parameters_.color_factor = std::stof(argv[i]);
                     }
                 }
-                else if (option_matches(argv[i], "downsample"))
+                else if (option_matches(argv[i], "down-sample") or
+                         option_matches(argv[i], "downsample"))
                 {
                     if (++i < argc)
                     {
@@ -172,8 +176,8 @@ namespace pdiff
                             throw PerceptualDiffException(
                                 "--downsample must be positive");
                         }
-                        parameters_.down_sample = static_cast<unsigned int>(temporary);
-                        assert(parameters_.down_sample <= INT_MAX);
+                        down_sample_ = static_cast<unsigned int>(temporary);
+                        assert(down_sample_ <= INT_MAX);
                     }
                 }
                 else if (option_matches(argv[i], "scale"))
@@ -237,7 +241,7 @@ namespace pdiff
             exit(EXIT_FAILURE);
         }
 
-        for (auto i = 0u; i < parameters_.down_sample; i++)
+        for (auto i = 0u; i < down_sample_; i++)
         {
             const auto tmp_a = image_a_->down_sample();
             const auto tmp_b = image_b_->down_sample();

@@ -32,13 +32,11 @@ Build Instructions
 
 #. Download CMake from http://www.cmake.org if you do not already have it on
    your system.
+
 #. Download FreeImage from https://sourceforge.net/projects/freeimage.
     - On OS X with MacPorts: ``port install freeimage``
     - On OS X with Brew: ``brew install freeimage``
     - On Ubuntu: ``apt-get install libfreeimage-dev``
-#. Type::
-
-    $ cmake .
 
 #. Type::
 
@@ -59,19 +57,20 @@ Command line::
     Compares image1 and image2 using a perceptually based image metric.
 
     Options:
-      --verbose        Turn on verbose mode
-      --fov deg        Field of view in degrees [0.1, 89.9] (default: 45.0)
-      --threshold p    Number of pixels p below which differences are ignored
-      --gamma g        Value to convert rgb into linear space (default: 2.2)
-      --luminance l    White luminance (default: 100.0 cdm^-2)
-      --luminanceonly  Only consider luminance; ignore chroma (color) in the
-                       comparison
-      --colorfactor    How much of color to use [0.0, 1.0] (default: 1.0)
-      --downsample     How many powers of two to down sample the image
-                       (default: 0)
-      --scale          Scale images to match each other's dimensions
-      --sum-errors     Print a sum of the luminance and color differences
-      --output o       Write difference to the file o
+      --verbose         Turn on verbose mode
+      --fov deg         Field of view in degrees [0.1, 89.9] (default: 45.0)
+      --threshold p     Number of pixels p below which differences are ignored
+      --gamma g         Value to convert rgb into linear space (default: 2.2)
+      --luminance l     White luminance (default: 100.0 cdm^-2)
+      --luminance-only  Only consider luminance; ignore chroma (color) in the
+                        comparison
+      --color-factor    How much of color to use [0.0, 1.0] (default: 1.0)
+      --down-sample     How many powers of two to down sample the image
+                        (default: 0)
+      --scale           Scale images to match each other's dimensions
+      --sum-errors      Print a sum of the luminance and color differences
+      --output o        Write difference to the file o
+      --version         Print version
 
 
 Check that perceptualdiff is built with OpenMP support::
@@ -109,6 +108,23 @@ Version History
   when FreeImage was introduced.
 - 2.0 - Support usage as a library.
 - 2.1 - Allow accessing stats directly when used as a library.
+
+
+Usage as a library
+==================
+
+.. code:: cpp
+
+    #include <perceptualdiff/metric.h>
+    #include <perceptualdiff/rgba_image.h>
+
+    int main()
+    {
+        const auto a = pdiff::read_from_file("a.png");
+        const auto b = pdiff::read_from_file("b.png");
+
+        const bool same = pdiff::yee_compare(*a, *b);
+    }
 
 
 Links
