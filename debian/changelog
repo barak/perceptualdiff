@@ -1,3 +1,9 @@
+perceptualdiff (2.1-3) unstable; urgency=medium
+
+  * Run test suite manually, since the callout was removed from cmake
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 13 Jan 2021 15:51:00 +0000
+
 perceptualdiff (2.1-2) unstable; urgency=medium
 
   * Track upstream development

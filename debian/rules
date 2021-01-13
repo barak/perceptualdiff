@@ -7,3 +7,10 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 %:
 	dh $@ --buildsystem=cmake
+
+override_dh_auto_test:
+	if type /bin/bash > /dev/null ; then		\
+	  ./test/run_tests.bash;			\
+	else						\
+	  echo "test script needs bash; skipped.";	\
+	fi
