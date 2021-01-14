@@ -1,0 +1,25 @@
+From: "Barak A. Pearlmutter" <barak+git@pearlmutter.net>
+Date: Thu, 14 Jan 2021 08:21:50 +0000
+Subject: help
+
+explain allowed image formats in --help string
+---
+ compare_args.cpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/compare_args.cpp b/compare_args.cpp
+index 0715ff6..968a8cd 100644
+--- a/compare_args.cpp
++++ b/compare_args.cpp
+@@ -36,9 +36,10 @@ namespace pdiff
+ 
+ 
+     static const auto USAGE =
+-"Usage: perceptualdiff image1 image2\n"
++"Usage: perceptualdiff [options] image1 image2\n"
+ "\n"
+ "Compares image1 and image2 using a perceptually based image metric.\n"
++"Images can be in any FreeImage-supported format: TIF, PNG, etc.\n"
+ "\n"
+ "Options:\n"
+ "  --verbose         Turn on verbose mode\n"
