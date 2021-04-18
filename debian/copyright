@@ -1,18 +1,22 @@
-This package was debianized by Jeff Breidenbach <jab@debian.org> on
-Fri, 28 Sep 2007 14:52:18 -0700.
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: PerceptualDiff
+Source: https://github.com/myint/perceptualdiff
 
-It was downloaded from https://github.com/myint/perceptualdiff/releases
+Files: *
+Copyright: 2011-2016, Steven Myint, Jeff Terrace
+           2006-2011, Yangli Hector Yee
+License: GPL-2+
+ You are free to distribute this software under the terms of
+ the GNU General Public License  either version 2 of the License,
+ or (at your option) any later version.
+ On Debian systems, the complete text of the GNU General Public
+ License can be found in the file `/usr/share/common-licenses/GPL-2'.
 
-Upstream Author:  Yangli Hector Yee <yeehector@users.sourceforge.net>
-                  Steven Myint
-
-Copyright (C) 2006-2011 Yangli Hector Yee
-Copyright (C) 2011-2014 Steven Myint
-
-License:
-
-You are free to distribute this software under the terms of
-the GNU General Public License  either version 2 of the License,
-or (at your option) any later version.
-On Debian systems, the complete text of the GNU General Public
-License can be found in the file `/usr/share/common-licenses/GPL-2'.
+Files: FindFreeImage.cmake
+Copyright: 2010, Ewen Cheslack-Postava
+           2006, Jaroslaw Staniek <js@iidea.pl>
+	   Extended by Siddhartha Chaudhuri, 2008
+License: BSD
+ Redistribution and use is allowed according to the terms of the BSD license.
+ On Debian systems, the complete text of the BSD License can be found
+ in the file `/usr/share/common-licenses/BSD'.
