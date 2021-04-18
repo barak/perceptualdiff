@@ -17,4 +17,7 @@ override_dh_auto_test:
 
 .PHONY: rebuild-manpage
 rebuild-manpage:
-	help2man --no-info --output=debian/perceptualdiff.1 obj-*/perceptualdiff
+	help2man --name='perceptual image comparison tool' \
+	 --no-info					\
+	 --output=debian/perceptualdiff.1		\
+	 obj-*/perceptualdiff

@@ -1,8 +1,9 @@
 perceptualdiff (2.1-4) unstable; urgency=medium
 
   * Support autopkgtest
+  * Improve perceptualdiff(1) whatis entry
 
- -- Barak A. Pearlmutter <bap@debian.org>  Sun, 18 Apr 2021 14:04:33 +0100
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 18 Apr 2021 14:18:10 +0100
 
 perceptualdiff (2.1-3) unstable; urgency=medium
 
