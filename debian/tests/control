@@ -1,0 +1,3 @@
+Test-Command: env tmpdir=${AUTOPKGTEST_TMP} pdiff=/usr/bin/perceptualdiff script_directory=${PWD}/test ./test/run_tests.bash
+Depends: @, grep
+Restrictions: allow-stderr

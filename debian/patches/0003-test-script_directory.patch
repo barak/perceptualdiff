@@ -1,0 +1,22 @@
+From: "Barak A. Pearlmutter" <barak+git@pearlmutter.net>
+Date: Sun, 18 Apr 2021 11:12:50 +0100
+Subject: test arg script_directory
+
+Optionally pass ${script_directory} where test data files live.
+---
+ test/run_tests.bash | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test/run_tests.bash b/test/run_tests.bash
+index aec2d3e..6fb6956 100755
+--- a/test/run_tests.bash
++++ b/test/run_tests.bash
+@@ -25,7 +25,7 @@ EOF
+ }
+ 
+ # Change to test directory
+-readonly script_directory=$(dirname "$0")
++echo "*** script_directory: ${script_directory:=$(dirname "$0")}"
+ cd "$script_directory"
+ 
+ if [ -z "${pdiff:=}" ]; then

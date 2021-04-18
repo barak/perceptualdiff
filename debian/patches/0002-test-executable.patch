@@ -1,0 +1,33 @@
+From: "Barak A. Pearlmutter" <barak+git@pearlmutter.net>
+Date: Sun, 18 Apr 2021 11:04:50 +0100
+Subject: test arg pdiff
+
+Optionally pass executable to test to test/run_tests.bash in $pdiff
+---
+ test/run_tests.bash | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/test/run_tests.bash b/test/run_tests.bash
+index d31e965..aec2d3e 100755
+--- a/test/run_tests.bash
++++ b/test/run_tests.bash
+@@ -28,6 +28,7 @@ EOF
+ readonly script_directory=$(dirname "$0")
+ cd "$script_directory"
+ 
++if [ -z "${pdiff:=}" ]; then
+ found=0
+ for d in ../build .. ../obj*; do
+     pdiff="$d/perceptualdiff"
+@@ -40,9 +41,9 @@ done
+ if [ $found = 0 ]; then
+     echo 'perceptualdiff must be built and exist in the repository root or the "build" directory'
+     exit 1
+-else
+-    echo "*** testing executable binary $pdiff"
+ fi
++fi
++echo "*** testing executable binary $pdiff"
+ 
+ #------------------------------------------------------------------------------
+ 
