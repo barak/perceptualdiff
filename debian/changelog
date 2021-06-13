@@ -5,8 +5,10 @@ perceptualdiff (2.1-5) UNRELEASED; urgency=medium
 
   [ Debian Janitor ]
   * debian/copyright: use spaces rather than tabs to start continuation lines.
+  * Remove constraints unnecessary since stretch:
+    + Build-Depends: Drop versioned constraint on cmake.
 
- -- Barak A. Pearlmutter <bap@debian.org>  Sun, 18 Apr 2021 15:52:50 +0100
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 11 Oct 2021 13:41:58 +0100
 
 perceptualdiff (2.1-4) unstable; urgency=medium
 
