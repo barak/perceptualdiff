@@ -15,7 +15,7 @@ License: GPL-2+
 Files: FindFreeImage.cmake
 Copyright: 2010, Ewen Cheslack-Postava
            2006, Jaroslaw Staniek <js@iidea.pl>
-	   Extended by Siddhartha Chaudhuri, 2008
+           Extended by Siddhartha Chaudhuri, 2008
 License: BSD
  Redistribution and use is allowed according to the terms of the BSD license.
  On Debian systems, the complete text of the BSD License can be found

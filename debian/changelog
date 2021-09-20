@@ -1,6 +1,10 @@
 perceptualdiff (2.1-5) UNRELEASED; urgency=medium
 
+  [ Barak A. Pearlmutter ]
   * Modernise debian/copyright
+
+  [ Debian Janitor ]
+  * debian/copyright: use spaces rather than tabs to start continuation lines.
 
  -- Barak A. Pearlmutter <bap@debian.org>  Sun, 18 Apr 2021 15:52:50 +0100
 
