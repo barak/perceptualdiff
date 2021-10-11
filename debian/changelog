@@ -1,14 +1,15 @@
-perceptualdiff (2.1-5) UNRELEASED; urgency=medium
+perceptualdiff (2.1-5) unstable; urgency=medium
 
   [ Barak A. Pearlmutter ]
   * Modernise debian/copyright
+  * Update standards version to 4.6.0, no changes needed.
 
   [ Debian Janitor ]
   * debian/copyright: use spaces rather than tabs to start continuation lines.
   * Remove constraints unnecessary since stretch:
     + Build-Depends: Drop versioned constraint on cmake.
 
- -- Barak A. Pearlmutter <bap@debian.org>  Mon, 11 Oct 2021 13:41:58 +0100
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 11 Oct 2021 17:16:00 +0100
 
 perceptualdiff (2.1-4) unstable; urgency=medium
 
