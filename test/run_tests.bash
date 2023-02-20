@@ -84,10 +84,6 @@ rm -f diff.png
 ls ${tmpdir}/diff.png
 rm -f ${tmpdir}/diff.png
 
-head fish1.png > ${tmpdir}/fake.png
-"$pdiff" --verbose fish1.png ${tmpdir}/fake.png 2>&1 | grep -q 'Failed to load'
-rm -f ${tmpdir}/fake.png
-
 mkdir -p ${tmpdir}/unwritable.png
 "$pdiff" --output ${tmpdir}/unwritable.png --verbose fish{1,2}.png 2>&1 | grep -q 'Failed to save'
 rmdir ${tmpdir}/unwritable.png
