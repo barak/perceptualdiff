@@ -5,6 +5,11 @@ set -eux
 # Script to run pdiff against a set of image file pairs, and check that the
 # PASS or FAIL status is as expected.
 
+# Disable test of loading a corrupt png file, which tickled a bug in some
+# libraries on some architectures. Re-enable when fixed. See 8e7f360f,
+# https://bugs.debian.org/982864, and https://bugs.debian.org/992905.
+test_bad_file=false
+
 trap "echo -e '\x1b[01;31mFailed\x1b[0m'" ERR
 
 #------------------------------------------------------------------------------
@@ -83,6 +88,12 @@ rm -f diff.png
 "$pdiff" --output ${tmpdir}/diff.png --verbose fish{1,2}.png 2>&1 | grep -q 'FAIL'
 ls ${tmpdir}/diff.png
 rm -f ${tmpdir}/diff.png
+
+if ${test_bad_file}; then
+head fish1.png > ${tmpdir}/fake.png
+"$pdiff" --verbose fish1.png ${tmpdir}/fake.png 2>&1 | grep -q 'Failed to load'
+rm -f ${tmpdir}/fake.png
+fi
 
 mkdir -p ${tmpdir}/unwritable.png
 "$pdiff" --output ${tmpdir}/unwritable.png --verbose fish{1,2}.png 2>&1 | grep -q 'Failed to save'
