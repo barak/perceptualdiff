@@ -18,15 +18,13 @@ trap "echo -e '\x1b[01;31mFailed\x1b[0m'" ERR
 #
 # Edit the following lines to add additional tests.
 all_tests () {
-cat <<EOF
-FAIL Bug1102605_ref.tif Bug1102605.tif
-PASS Bug1471457_ref.tif Bug1471457.tif
-PASS cam_mb_ref.tif cam_mb.tif
-FAIL fish2.png fish1.png
-PASS square.png square_scaled.png
-FAIL Aqsis_vase.png Aqsis_vase_ref.png
-FAIL alpha1.png alpha2.png
-EOF
+    echo FAIL Bug1102605{_ref,}.tif
+    echo PASS Bug1471457{_ref,}.tif
+    echo PASS cam_mb{_ref,}.tif
+    echo FAIL fish{2,1}.png
+    echo PASS square{,_scaled}.png
+    echo FAIL Aqsis_vase{,_ref}.png
+    echo FAIL alpha{1,2}.png
 }
 
 echo "*** tmpdir: ${tmpdir:=/tmp}"
