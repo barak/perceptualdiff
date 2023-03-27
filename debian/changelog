@@ -1,3 +1,10 @@
+perceptualdiff (2.1-7) unstable; urgency=medium
+
+  * Guard another test that fails due to a bad library on a couple
+    architectures. Figure it out later.  Alignment issues?
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 27 Mar 2023 14:32:03 +0100
+
 perceptualdiff (2.1-6) unstable; urgency=medium
 
   * Wrap long lines in changelog entries: 2.1-5.1.
