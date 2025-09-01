@@ -1,3 +1,10 @@
+perceptualdiff (2.1-7.1) unstable; urgency=medium
+
+  * Non-maintainer upload
+  * d/copyright: Correct BSD license
+
+ -- Bastian Germann <bage@debian.org>  Mon, 01 Sep 2025 16:27:45 +0200
+
 perceptualdiff (2.1-7) unstable; urgency=medium
 
   * Guard another test that fails due to a bad library on a couple
