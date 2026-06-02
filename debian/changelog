@@ -1,3 +1,11 @@
+perceptualdiff (2.1-8) unstable; urgency=medium
+
+  * bump policy
+  * freeimage is problematic so port from libpng / libtiff / libfreeimage
+    to libgdk-pixbuf
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 02 Jun 2026 10:50:56 +0100
+
 perceptualdiff (2.1-7.2) unstable; urgency=medium
 
   * Non-maintainer upload.
