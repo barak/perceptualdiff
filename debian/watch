@@ -1,3 +1,5 @@
-version=4
-https://github.com/myint/@PACKAGE@/tags \
- .*/v?@ANY_VERSION@@ARCHIVE_EXT@
+Version: 5
+
+Template: Github
+Owner: myint
+Project: @PACKAGE@
