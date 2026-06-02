@@ -26,5 +26,5 @@ addons:
         packages:
             - cmake
             - cppcheck
-            - libfreeimage-dev
+            - libgdk-pixbuf-2.0-dev
             - valgrind

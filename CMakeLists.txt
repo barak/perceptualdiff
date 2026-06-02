@@ -30,12 +30,13 @@ if(SANITIZERS)
 endif()
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
-set(FREEIMAGE_FIND_REQUIRED, TRUE)
-find_package(FreeImage)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GDK_PIXBUF REQUIRED gdk-pixbuf-2.0)
 
 add_library(pdiff lpyramid.cpp rgba_image.cpp metric.cpp)
-target_include_directories(pdiff SYSTEM PRIVATE ${FREEIMAGE_INCLUDE_DIRS})
-target_link_libraries(pdiff PRIVATE ${FREEIMAGE_LIBRARIES})
+target_include_directories(pdiff SYSTEM PRIVATE ${GDK_PIXBUF_INCLUDE_DIRS})
+target_compile_options(pdiff PRIVATE ${GDK_PIXBUF_CFLAGS_OTHER})
+target_link_libraries(pdiff PRIVATE ${GDK_PIXBUF_LIBRARIES})
 
 add_executable(perceptualdiff compare_args.cpp perceptualdiff.cpp)
 target_link_libraries(perceptualdiff PRIVATE pdiff)

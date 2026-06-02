@@ -33,10 +33,8 @@ Build Instructions
 #. Download CMake from http://www.cmake.org if you do not already have it on
    your system.
 
-#. Download FreeImage from https://sourceforge.net/projects/freeimage.
-    - On OS X with MacPorts: ``port install freeimage``
-    - On OS X with Brew: ``brew install freeimage``
-    - On Ubuntu: ``apt-get install libfreeimage-dev``
+#. Install GdkPixbuf development files.
+    - On Ubuntu: ``apt-get install libgdk-pixbuf-2.0-dev``
 
 #. Type::
 
@@ -86,9 +84,9 @@ Credits
 - Scott Corley, for png file IO code.
 - Tobias Sauerwein, for make install, package_source Cmake configuration.
 - Cairo Team, for bugfixes.
-- Jim Tilander, rewrote the IO to use FreeImage.
+- Jim Tilander, rewrote the IO.
 - Steven Myint, for OpenMP support and bug fixes.
-- Jeff Terrace, for better FreeImage support and new command-line options.
+- Jeff Terrace, for better image format support and new command-line options.
 
 
 Version History

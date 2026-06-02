@@ -272,10 +272,10 @@ namespace pdiff
                 const auto i = x + y * w;
 
                 // perceptualdiff used to use premultiplied alphas when loading
-                // the image. This is no longer the case since the switch to
-                // FreeImage. We need to do the multiplication here now. As was
-                // the case with premultiplied alphas, differences in alphas
-                // won't be detected where the color is black.
+                // the image. This is no longer the case with the current image
+                // backends, so we need to do the multiplication here now. As
+                // was the case with premultiplied alphas, differences in
+                // alphas won't be detected where the color is black.
 
                 const auto a_alpha = image_a.get_alpha(i) / 255.f;
 
